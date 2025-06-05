@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">InAppFeedbackSDK</string>
+    <string name="feedback_form_title">Feedback Form</string>
+    <string name="your_feedback">Your feedback</string>
+    <string name="submit">Submit</string>
+    <string name="not_now"><u><b>Not now</b></u></string>
+</resources>
