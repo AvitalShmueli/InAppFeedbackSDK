@@ -5,14 +5,14 @@ import java.util.Date;
 public class Feedback {
     private String package_name;
     private String message;
-    private int rating;
+    private Integer rating;
     private String app_version;
     private String device_info;
     private String form_id;
     private String user_id;
     private Date created_at;
 
-    public Feedback(String packageName, String formId, String userId, String message, int rating,
+    public Feedback(String packageName, String formId, String userId, String message, Integer rating,
                     String appVersion, String deviceInfo, Date createdAt) {
         this.package_name = packageName;
         this.form_id = formId;
@@ -51,11 +51,11 @@ public class Feedback {
         return this;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public Feedback setRating(int rating) {
+    public Feedback setRating(Integer rating) {
         this.rating = rating;
         return this;
     }

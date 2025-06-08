@@ -32,7 +32,7 @@ public class FeedbackActivity extends AppCompatActivity {
     private RatingBar feedback_BAR_rating;
     private MaterialButton feedback_BTN_submit;
     private MaterialButton feedback_BTN_notNow;
-    private  FeedbackManager feedbackManager;
+    private FeedbackManager feedbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class FeedbackActivity extends AppCompatActivity {
         feedback_BTN_notNow.setOnClickListener(v -> finish());
     }
 
-    private void createBinding(){
+    private void createBinding() {
         feedback_LBL_description = binding.feedbackLBLDescription;
         feedback_TIL_message = binding.feedbackTILMessage;
         feedback_TXT_message = binding.feedbackTXTMessage;
@@ -81,7 +81,7 @@ public class FeedbackActivity extends AppCompatActivity {
             @Override
             public void onError(String errorMessage) {
                 Toast.makeText(FeedbackActivity.this, "Failed to load form", Toast.LENGTH_SHORT).show();
-                Log.e("pttt","Failed to load form: " + errorMessage);
+                Log.e("pttt", "Failed to load form: " + errorMessage);
             }
         });
         /*
@@ -107,7 +107,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
             if (TextUtils.isEmpty(message)) {
                 feedback_TIL_message.setError("Feedback message is required");
-                Log.e("pttt","Missing feedback message");
+                Log.e("pttt", "Missing feedback message");
                 loading.setVisibility(View.GONE);
                 return;
             } else {
@@ -118,7 +118,7 @@ public class FeedbackActivity extends AppCompatActivity {
             rating = (int) feedback_BAR_rating.getRating();
             if (rating == 0) {
                 Toast.makeText(this, "Please provide a rating", Toast.LENGTH_SHORT).show();
-                Log.e("pttt","Missing rating");
+                Log.e("pttt", "Missing rating");
                 loading.setVisibility(View.GONE);
                 return;
             }
@@ -137,7 +137,7 @@ public class FeedbackActivity extends AppCompatActivity {
             @Override
             public void onFailure(String errorMessage) {
                 Toast.makeText(FeedbackActivity.this, "Failed: " + errorMessage, Toast.LENGTH_SHORT).show();
-                Log.e("pttt","Failed: " + errorMessage);
+                Log.e("pttt", "Failed: " + errorMessage);
                 loading.setVisibility(View.GONE);
             }
         });

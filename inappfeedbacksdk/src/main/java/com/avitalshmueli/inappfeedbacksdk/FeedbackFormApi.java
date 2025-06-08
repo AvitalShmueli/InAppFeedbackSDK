@@ -2,6 +2,7 @@ package com.avitalshmueli.inappfeedbacksdk;
 
 import com.avitalshmueli.inappfeedbacksdk.model.Feedback;
 import com.avitalshmueli.inappfeedbacksdk.model.FeedbackForm;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

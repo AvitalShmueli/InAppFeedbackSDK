@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:elevation="8dp"
+    android:padding="16dp"
+    android:layout_margin="16dp"
+    android:background="@android:color/white"
+    tools:context=".FeedbackDialogFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dialog_LBL_title"
+            android:text="@string/feedback_form_title"
+            android:textSize="@dimen/title_text_size"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dialog_LBL_description"
+            tools:text="Form's description"
+            android:textSize="@dimen/title_text_description"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dialog_TIL_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/your_feedback">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialog_TXT_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|textCapSentences"
+                android:gravity="top|start"
+                android:textSize="13sp"
+                android:minLines="3"
+                android:maxLines="6" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RatingBar
+            android:id="@+id/dialog_BAR_rating"
+            android:layout_marginTop="24dp"
+            android:numStars="5"
+            android:stepSize="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <ProgressBar
+            android:id="@+id/dialog_loadingSpinner"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_BTN_submit"
+            android:text="@string/submit"
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialog_BTN_notNow"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/not_now"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

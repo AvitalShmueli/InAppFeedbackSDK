@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.fragment.app.FragmentManager;
+
 import com.avitalshmueli.inappfeedbacksdk.model.Feedback;
 import com.avitalshmueli.inappfeedbacksdk.model.FeedbackForm;
 import com.google.gson.Gson;
@@ -98,6 +100,18 @@ public class FeedbackManager {
     }
 
     public Feedback buildFeedback(String message, int rating) {
+        if (rating == 0){
+            return new Feedback(
+                    appContext.getPackageName(),
+                    feedbackForm.getId(),
+                    getOrCreateUserId(),
+                    message,
+                    null,
+                    appVersion,
+                    getDeviceInfo(),
+                    new Date()
+            );
+        }
         return new Feedback(
                 appContext.getPackageName(),
                 feedbackForm.getId(),
@@ -159,12 +173,14 @@ public class FeedbackManager {
                     String errorMsg = "Submission failed: HTTP " + response.code();
                     try {
                         if (response.errorBody() != null) {
-                            errorMsg += " - " + response.errorBody().string();
+                            //errorMsg += " - " + response.errorBody().string();
+                            errorMsg += " - " + response.message();
                         }
                     } catch (Exception e) {
                         errorMsg += " - Unable to parse error";
                     }
-                    callback.onFailure(errorMsg);                }
+                    callback.onFailure(errorMsg);
+                }
             }
 
             @Override
@@ -173,6 +189,12 @@ public class FeedbackManager {
             }
         });
     }
+
+    public void showFeedbackDialog(FragmentManager fragmentManager, FeedbackForm form) {
+        FeedbackDialogFragment dialog = FeedbackDialogFragment.newInstance(form);
+        dialog.show(fragmentManager, "FeedbackDialog");
+    }
+
 
     public interface FeedbackSubmitCallback {
         void onSuccess();
