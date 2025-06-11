@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context="com.avitalshmueli.inappfeedbacksdk.FeedbackActivity">
+    tools:context=".FeedbackDialogFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/feedback_LBL_title"

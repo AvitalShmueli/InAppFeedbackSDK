@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-public interface FeedbackFormApi {
+public interface FeedbackFormAPI {
     @GET("forms/{package_name}")
     Call<FeedbackForm> getFormByPackageName(@Path("package_name") String packageName);
 

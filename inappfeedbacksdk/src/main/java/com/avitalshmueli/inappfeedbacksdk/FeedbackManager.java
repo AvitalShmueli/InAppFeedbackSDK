@@ -1,14 +1,14 @@
 package com.avitalshmueli.inappfeedbacksdk;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
 import androidx.fragment.app.FragmentManager;
 
+import com.avitalshmueli.inappfeedbacksdk.interfaces.FormLoadedCallback;
+import com.avitalshmueli.inappfeedbacksdk.interfaces.FeedbackSubmitCallback;
 import com.avitalshmueli.inappfeedbacksdk.model.Feedback;
 import com.avitalshmueli.inappfeedbacksdk.model.FeedbackForm;
 import com.google.gson.Gson;
@@ -28,10 +28,10 @@ public class FeedbackManager {
     private final Context appContext;
     private String userId;
     private String appVersion;
-    private FeedbackFormApi api;
+    private FeedbackFormAPI api;
     private FeedbackForm feedbackForm;
 
-    static final String BASE_URL = "http://192.168.1.103:5000/"; // Use 10.0.2.2 for Android Emulator
+    static final String BASE_URL = "http://192.168.1.103:5000/";  // TODO: change url of server
     private static final String PREF_NAME = "in_app_feedback_prefs";
     private static final String KEY_USER_ID = "user_id";
 
@@ -52,7 +52,7 @@ public class FeedbackManager {
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 
-            api = retrofit.create(FeedbackFormApi.class);
+            api = retrofit.create(FeedbackFormAPI.class);
         }
     }
 
@@ -88,15 +88,6 @@ public class FeedbackManager {
 
     public String getUserId() {
         return userId;
-    }
-
-    public void launchFeedbackForm(Activity activity) {
-        Intent intent = new Intent(activity, FeedbackActivity.class);
-        intent.putExtra("form_id", feedbackForm.getId());
-        intent.putExtra("user_id", userId);
-        intent.putExtra("app_version", appVersion);
-        intent.putExtra("device_info", getDeviceInfo());
-        activity.startActivity(intent);
     }
 
     public Feedback buildFeedback(String message, int rating) {
@@ -139,7 +130,7 @@ public class FeedbackManager {
         }
     }
 
-    public void getFormByPackageName(String packageName, FeedbackCallback callback) {
+    public void getFormByPackageName(String packageName, FormLoadedCallback callback) {
         initApi();
         Call<FeedbackForm> call = api.getFormByPackageName(packageName);
         call.enqueue(new Callback<FeedbackForm>() {
@@ -148,15 +139,15 @@ public class FeedbackManager {
                 if (response.isSuccessful() && response.body() != null) {
                     Log.d("ptttt", new Gson().toJson(response.body()));
                     feedbackForm = response.body();
-                    callback.onFormLoaded(response.body());
+                    callback.onSuccess(response.body());
                 } else {
-                    callback.onError("Failed with code: " + response.code());
+                    callback.onFailure("Failed with code: " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<FeedbackForm> call, Throwable t) {
-                callback.onError(t.getMessage());
+                callback.onFailure(t.getMessage());
             }
         });
     }
@@ -193,17 +184,6 @@ public class FeedbackManager {
     public void showFeedbackDialog(FragmentManager fragmentManager, FeedbackForm form) {
         FeedbackDialogFragment dialog = FeedbackDialogFragment.newInstance(form);
         dialog.show(fragmentManager, "FeedbackDialog");
-    }
-
-
-    public interface FeedbackSubmitCallback {
-        void onSuccess();
-        void onFailure(String errorMessage);
-    }
-
-    public interface FeedbackCallback {
-        void onFormLoaded(FeedbackForm form);
-        void onError(String errorMessage);
     }
 
     public interface MyCallBack<T> {

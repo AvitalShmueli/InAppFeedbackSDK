@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.fragment.app.DialogFragment;
 
 import com.avitalshmueli.inappfeedbacksdk.databinding.DialogFeedbackBinding;
+import com.avitalshmueli.inappfeedbacksdk.interfaces.FeedbackSubmitCallback;
 import com.avitalshmueli.inappfeedbacksdk.model.Feedback;
 import com.avitalshmueli.inappfeedbacksdk.model.FeedbackForm;
 import com.google.android.material.button.MaterialButton;
@@ -30,7 +31,23 @@ public class FeedbackDialogFragment extends DialogFragment {
     private RatingBar dialog_BAR_rating;
     private MaterialButton dialog_BTN_submit;
     private MaterialButton dialog_BTN_notNow;
-    private  FeedbackManager feedbackManager;
+    private FeedbackFormManager feedbackFormManager;
+    private FeedbackForm form;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        feedbackFormManager = FeedbackFormManager.getInstance(requireContext());
+        Bundle args = getArguments();
+        if (args != null) {
+            form = new FeedbackForm()
+                    .setId(args.getString("form_id"))
+                    .setType(args.getString("form_type"))
+                    .setTitle(args.getString("form_title"));
+            feedbackFormManager.setFeedbackForm(form);
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,8 +56,8 @@ public class FeedbackDialogFragment extends DialogFragment {
 
         createBinding();
 
-        feedbackManager = FeedbackManager.getInstance(getContext());
-        loadForm();
+        applyFormSettings(form);
+        //loadForm();
 
         dialog_BTN_submit.setOnClickListener(v -> submitFeedback());
         dialog_BTN_notNow.setOnClickListener(v -> dismiss());
@@ -67,31 +84,6 @@ public class FeedbackDialogFragment extends DialogFragment {
         dialog_BTN_notNow = binding.dialogBTNNotNow;
     }
 
-    private void loadForm() {
-        String packageName = requireContext().getPackageName();
-        feedbackManager.getFormByPackageName(packageName, new FeedbackManager.FeedbackCallback() {
-            @Override
-            public void onFormLoaded(FeedbackForm form) {
-                //formId = form.getId();
-                applyFormSettings(form);
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(requireContext(), "Failed to load form", Toast.LENGTH_SHORT).show();
-                Log.e("pttt","Failed to load form: " + errorMessage);
-            }
-        });
-        /*
-        FeedbackForm form = new FeedbackForm();
-        form.setPackage_name(packageName);
-        form.setFormId(String.valueOf(UUID.randomUUID())); // TODO: check if needed
-        form.setTitle("Please rate your experience");
-        form.setType("rating_text"); // or "text", "rating"
-
-        applyFormSettings(form);
-        */
-    }
 
     private void submitFeedback() {
         ProgressBar loading = binding.dialogLoadingSpinner;
@@ -102,7 +94,9 @@ public class FeedbackDialogFragment extends DialogFragment {
             message = null;
         }
 
-        int rating = (int) dialog_BAR_rating.getRating();
+        int rating = dialog_BAR_rating.getVisibility() == View.VISIBLE
+                ? (int) dialog_BAR_rating.getRating()
+                : 0;
         boolean isMessageVisible = dialog_TIL_message.getVisibility() == View.VISIBLE;
         boolean isRatingVisible = dialog_BAR_rating.getVisibility() == View.VISIBLE;
 
@@ -127,41 +121,9 @@ public class FeedbackDialogFragment extends DialogFragment {
 
         dialog_TIL_message.setError(null); // Clear any previous errors
 
-        /*if (dialog_TIL_message.getVisibility() == VISIBLE && dialog_BAR_rating.getVisibility() == VISIBLE) {
-            if(message == null && rating == 0){
-                dialog_TIL_message.setError("Feedback message is required");
-                Toast.makeText(requireContext(), "Please provide a rating", Toast.LENGTH_SHORT).show();
-                Log.e("pttt","Missing feedback message and rating");
-                loading.setVisibility(View.GONE);
-                return;
-            }
-            else{
-                dialog_TIL_message.setError(null);
-            }
-        }
-        else {
-            if (dialog_TIL_message.getVisibility() == VISIBLE) {
-                if (message == null) {
-                    dialog_TIL_message.setError("Feedback message is required");
-                    Log.e("pttt", "Missing feedback message");
-                    loading.setVisibility(View.GONE);
-                    return;
-                } else {
-                    dialog_TIL_message.setError(null);
-                }
-            }
-            if (dialog_BAR_rating.getVisibility() == VISIBLE) {
-                if (rating == 0) {
-                    Toast.makeText(requireContext(), "Please provide a rating", Toast.LENGTH_SHORT).show();
-                    Log.e("pttt", "Missing rating");
-                    loading.setVisibility(View.GONE);
-                    return;
-                }
-            }
-        }*/
+        Feedback newFeedback = feedbackFormManager.buildFeedback(message, rating);
 
-        Feedback newFeedback = feedbackManager.buildFeedback(message, rating);
-        feedbackManager.submitFeedback(newFeedback, new FeedbackManager.FeedbackSubmitCallback() {
+        feedbackFormManager.submitFeedback(newFeedback, new FeedbackSubmitCallback() {
             @Override
             public void onSuccess() {
                 Log.d("pttt", "Feedback submitted successfully!");
