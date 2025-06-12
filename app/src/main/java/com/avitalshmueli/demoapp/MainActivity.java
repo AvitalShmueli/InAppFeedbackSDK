@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(root);
 
         FeedbackFormManager feedbackManager = FeedbackFormManager.getInstance(getApplicationContext());
-        feedbackManager.setUserId("USER_123456");
+        feedbackManager.setUserId("USER_123456"); // simulate authenticated user
 
         binding.mainBTNShowPopup.setOnClickListener(new View.OnClickListener() {
             @Override
