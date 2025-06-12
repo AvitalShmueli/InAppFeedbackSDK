@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.avitalshmueli.inappfeedbacksdk"
+    namespace = "com.avitalshmueli.demoapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.avitalshmueli.inappfeedbacksdk"
+        applicationId = "com.avitalshmueli.demoapp"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":inappfeedbacksdk"))
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -43,8 +43,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
-    // Rest API calls
-    implementation(libs.retrofit)
-    implementation(libs.retrofit2.converter.gson)
 }

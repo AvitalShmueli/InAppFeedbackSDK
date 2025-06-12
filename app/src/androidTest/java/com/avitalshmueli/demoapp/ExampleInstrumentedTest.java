@@ -1,4 +1,4 @@
-package com.avitalshmueli.inappfeedbacksdk;
+package com.avitalshmueli.demoapp;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.avitalshmueli.inappfeedbacksdk", appContext.getPackageName());
+        assertEquals("com.avitalshmueli.demoapp", appContext.getPackageName());
     }
 }

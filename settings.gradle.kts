@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "InAppFeedbackSDK"
 include(":app")
+include(":inappfeedbacksdk")
