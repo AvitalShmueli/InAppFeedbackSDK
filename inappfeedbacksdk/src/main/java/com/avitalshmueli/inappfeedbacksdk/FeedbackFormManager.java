@@ -122,7 +122,7 @@ public class FeedbackFormManager {
      *
      * @return The user ID or null if not set.
      */
-    public String getUserId() {
+    String getUserId() {
         return userId;
     }
 
@@ -131,7 +131,7 @@ public class FeedbackFormManager {
      *
      * @param form The FeedbackForm object to store.
      */
-    public void setFeedbackForm(FeedbackForm form) {
+    void setFeedbackForm(FeedbackForm form) {
         this.feedbackForm = form;
     }
 
@@ -142,7 +142,7 @@ public class FeedbackFormManager {
      * @param rating The user’s rating, or 0 if not provided.
      * @return A Feedback object ready for submission.
      */
-    public Feedback buildFeedback(String message, int rating) {
+    Feedback buildFeedback(String message, int rating) {
         if (rating == 0){
             return new Feedback(
                     appContext.getPackageName(),
@@ -209,7 +209,7 @@ public class FeedbackFormManager {
      * @param feedback The Feedback object to be submitted.
      * @param callback Callback to notify on success or failure.
      */
-    public void submitFeedback(Feedback feedback, FeedbackSubmitCallback callback) {
+    void submitFeedback(Feedback feedback, FeedbackSubmitCallback callback) {
         feedbackController.submitFeedback(feedback, callback);
     }
 
