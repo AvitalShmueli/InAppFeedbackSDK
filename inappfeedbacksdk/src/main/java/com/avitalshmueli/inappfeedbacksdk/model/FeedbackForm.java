@@ -3,11 +3,17 @@ package com.avitalshmueli.inappfeedbacksdk.model;
 import com.google.gson.annotations.SerializedName;
 
 public class FeedbackForm {
+    public enum FORM_TYPE{
+        rating,
+        free_text,
+        rating_text
+    }
+
     @SerializedName("_id")
     private String id;
     private String package_name;
     private String title;
-    private String type; // TODO: maybe change to enum??
+    private FORM_TYPE type;
 
     public FeedbackForm() {
     }
@@ -39,11 +45,11 @@ public class FeedbackForm {
         return this;
     }
 
-    public String getType() {
+    public FORM_TYPE getType() {
         return type;
     }
 
-    public FeedbackForm setType(String type) {
+    public FeedbackForm setType(FORM_TYPE type) {
         this.type = type;
         return this;
     }

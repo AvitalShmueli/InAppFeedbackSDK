@@ -54,7 +54,7 @@ public class FeedbackDialogFragment extends DialogFragment {
         if (args != null) {
             form = new FeedbackForm()
                     .setId(args.getString("form_id"))
-                    .setType(args.getString("form_type"))
+                    .setType(FeedbackForm.FORM_TYPE.valueOf(args.getString("form_type")))
                     .setTitle(args.getString("form_title"));
             feedbackFormManager.setFeedbackForm(form);
         }
@@ -74,11 +74,11 @@ public class FeedbackDialogFragment extends DialogFragment {
         return binding.getRoot();
     }
 
-    public static FeedbackDialogFragment newInstance(FeedbackForm form) {
+    static FeedbackDialogFragment newInstance(FeedbackForm form) {
         FeedbackDialogFragment fragment = new FeedbackDialogFragment();
         Bundle args = new Bundle();
         args.putString("form_id", form.getId());
-        args.putString("form_type", form.getType());
+        args.putString("form_type", form.getType().name());
         args.putString("form_title", form.getTitle());
         fragment.setArguments(args);
         return fragment;
@@ -172,15 +172,15 @@ public class FeedbackDialogFragment extends DialogFragment {
         dialog_LBL_description.setText(form.getTitle());
 
         switch (form.getType()) {
-            case "rating":
+            case rating:
                 dialog_BAR_rating.setVisibility(VISIBLE);
                 dialog_TIL_message.setVisibility(View.GONE);
                 break;
-            case "text":
+            case free_text:
                 dialog_BAR_rating.setVisibility(View.GONE);
                 dialog_TIL_message.setVisibility(VISIBLE);
                 break;
-            case "rating_text":
+            case rating_text:
             default:
                 dialog_BAR_rating.setVisibility(VISIBLE);
                 dialog_TIL_message.setVisibility(VISIBLE);
