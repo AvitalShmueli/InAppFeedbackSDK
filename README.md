@@ -36,7 +36,7 @@ dependencies {
 ```
 convert dependency to kotlin syntax using gradle/libs.versions.toml file.
 
-# How to Start?
+## How to Start?
 1. Initialize the SDK and fetch the active form:
 ```java
 FeedbackFormManager manager = FeedbackFormManager.getInstance(context);
@@ -58,13 +58,22 @@ manager.getActiveFeedbackForm(context, fragmentManager, new FeedbackFormManager.
 manager.setUserId("user_1234");
 ```
 
-# License
+## Contributing
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+
+## License
+
+   Copyright 2025 Avital Shmueli
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-
-
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
