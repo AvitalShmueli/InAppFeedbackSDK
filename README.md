@@ -4,6 +4,11 @@
 
 The **InAppFeedbackSDK** library is a lightweight Android SDK to **collect in-app user feedback** with a customizable dialog and automatic device/app metadata capture. Built for easy integration and seamless UX.
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/9fb928d5-5f69-430a-a662-fd10f9ffb947" alt="demo_app"
+style="height:400px;"/>
+</p>
+
 ---
 
 ## Features
