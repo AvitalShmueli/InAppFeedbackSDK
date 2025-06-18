@@ -4,16 +4,18 @@
 
 The **InAppFeedbackSDK** library is a lightweight Android SDK to **collect in-app user feedback** with a customizable dialog and automatic device/app metadata capture. Built for easy integration and seamless UX.
 
+---
 
 ## Features
 
-- Easily fetch and display feedback forms
+- Display feedback forms with minimal code
 - Collect user messages and optional star ratings
-- Includes app version, device info, and timestamp automatically
+- Automatically includes app version, device info, and timestamp
 - Supports anonymous or authenticated user IDs
 - Clean and native UI dialog using `FragmentManager`
-- Retrofit-powered submission with callback support
+- Callback support for handling success and errors
 
+---
 
 ## Installation
 
@@ -28,23 +30,52 @@ dependencyResolutionManagement {
 	}
 ```
 
+1. Add the JitPack repository to your build file. Add it in your `settings.gradle.kts` at the end of repositories:
+```kotlin
+dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url = uri("https://jitpack.io") }
+		}
+	}
+```
+
 2. Add the library dependency to your app-level build.gradle:
+Using direct declaration:
 ```kotlin
 dependencies {
 	        implementation("com.github.AvitalShmueli:InAppFeedbackSDK:Tag")
 	}
 ```
-convert dependency to kotlin syntax using gradle/libs.versions.toml file.
+
+Or using libs.versions.toml:
+```toml
+[versions]
+inappfeedbacksdk = "Tag"
+
+[libraries]
+inappfeedbacksdk = { module = "com.github.AvitalShmueli:InAppFeedbackSDK", version.ref = "inappfeedbacksdk" }
+```
+
+Then in your module build file:
+```kotlin
+dependencies {
+implementation(libs.inappfeedbacksdk)
+}
+```
+
+---
 
 # How to Start?
-1. Initialize the SDK and fetch the active form:
+1. Fetch and Display the Feedback Form
 ```java
 FeedbackFormManager manager = FeedbackFormManager.getInstance(context);
 
 manager.getActiveFeedbackForm(context, fragmentManager, new FeedbackFormManager.FeedbackFormCallback<FeedbackForm>() {
     @Override
     public void ready(FeedbackForm form) {
-        // The feedback dialog will be shown automatically
+        // The feedback dialog is shown automatically
     }
 
     @Override
@@ -53,10 +84,16 @@ manager.getActiveFeedbackForm(context, fragmentManager, new FeedbackFormManager.
     }
 });
 ```
+
+* **The feedback dialog is shown automatically only if there is an active form for the application package in the DB.**
+
+<br>
 2. Optionally set a user ID (e.g., logged-in user):
 ```java
 manager.setUserId("user_1234");
 ```
+
+---
 
 # License
 
