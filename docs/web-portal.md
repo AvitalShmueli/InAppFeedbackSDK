@@ -4,7 +4,10 @@ Use it to create feedback forms, track user responses, and analyze feedback data
 
 ## Portal Access
 URL: https://feedback-portal-eight.vercel.app
+
 Access the portal through any web browser. No authentication is required for basic usage.
+
+---
 
 ## Creating Feedback Forms
 
@@ -33,6 +36,7 @@ Form Type: Rating & Text
 
 This configuration will display a dialog with the specified title, star rating, and text input field.
 
+---
 
 ## Managing Forms
 
@@ -44,6 +48,8 @@ This configuration will display a dialog with the specified title, star rating, 
 - **Enable/Disable**: Toggle form availability without deleting configuration
 - **View Details**: Check form configuration and status
 - **Track Submissions**: Track submission counts and activity
+
+---
 
 ## Viewing Feedback Data
 
@@ -63,6 +69,7 @@ Filter feedback data by:
 - **Type**: Filter by form type (Rating, Free Text, Rating & Text)
 - **Form Title**: Search by form title text
 
+---
 
 ## Integration Workflow
 
@@ -71,6 +78,8 @@ Filter feedback data by:
 2. **Integrate SDK**: Add the SDK to your Android app following the [Getting Started guide](./getting-started.md)
 3. **Test Integration**: Verify the form appears correctly in your app
 4. **Monitor Data**: Use the portal to view incoming feedback
+
+---
 
 ### Testing Your Setup
 1. **Create a test form** with your app's package name

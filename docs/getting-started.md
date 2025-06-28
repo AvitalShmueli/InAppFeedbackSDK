@@ -145,14 +145,20 @@ Let’s test the flow!
 Now that your feedback system is live, here are some ways to take it further:
 - **Customize when the dialog appears**
   Trigger the feedback dialog after meaningful actions (e.g., purchases, feature use, level completion).
+
   💡 Ask at natural break points to avoid interrupting users.
+  
 - **Collect analytics on submission events**
   Track when feedback is shown, skipped, or submitted. Use this data to improve timing and targeting.
+  
 - **Style the dialog (coming soon)**
   Customize the look and feel to match your app’s branding.
+  
 - **Monitor trends in the portal**
   Analyze ratings, user messages, and submission frequency over time.
+
   💡 Don’t just collect — act on insights and close the loop with users where possible.
+  
 - **Limit over-prompting**
   Prompt users sparingly to prevent fatigue. Once every few sessions is often enough.
 
