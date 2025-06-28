@@ -9,6 +9,54 @@ The **InAppFeedbackSDK** library is a lightweight Android SDK to **collect in-ap
 style="height:400px;"/>
 </p>
 
+---
+
+## Project Architecture
+The InAppFeedbackSDK is a feedback collection system with multiple components that work together to capture user feedback in Android applications.
+### System Overview
+The project follows a client-server architecture with three main layers:
+**Client Layer**: Android applications integrate the lightweight SDK library to display feedback forms and collect user input through native dialogs. 
+Additionally, a web-based administration portal provides administrators with a dashboard to manage feedback data and system configurations.
+**Server Layer**: A Flask-based REST API service handles all backend operations, processing feedback submissions, managing form configurations, and serving data to client applications. The server is deployed on Vercel for reliability and scalability.
+**Data Layer**: MongoDB Atlas serves as the cloud database, storing feedback submissions, user data, application configurations, and form templates. MongoDB's document-based structure perfectly handles the varied feedback data formats and metadata.
+
+---
+
+## Key Components
+
+1. **Backend API Service**
+   The backend service acts as the central hub for all feedback operations, providing a robust and scalable RESTful API.
+   Technology Stack:
+   - Framework: Flask (RESTful API)
+   - Database: MongoDB Atlas (Cloud-hosted)
+   - Deployment: Cloud service provider - Vercel
+   
+   [Link to the backend's GitHab repository](https://github.com/AvitalShmueli/feedback-backend) 
+
+2. **Android SDK Library**
+   The Android library gives developers an easy way to add feedback form to their apps to collect feedback from users.
+   Published on JitPack for easy integration 
+   Key Features:
+   - **FeedbackFormManager**: Central class managing all SDK operations
+   - **Automatic Metadata Collection**: Captures device info, app version, and timestamps
+   - **Customizable UI**: Native Android dialog with clean, intuitive design
+   - **Network Layer**: Handles API communication with retry logic and error handling
+   - **Callback System**: Provides success/error feedback to host applications
+
+   Main Classes:
+   - FeedbackFormManager: Singleton manager for SDK operations
+   - FeedbackDialogFragment: Custom dialog fragment for user interaction
+   - FeedbackForm: Data model representing feedback forms
+   - Feedback: Data model representing user's feedback
+   - FeedbackController: Network communication handler
+
+3. **Example Android Application**
+   A simple demo app showing how to integrate and use the SDK.
+
+4. **Administration Portal**
+   A web-based interface for managing feedback data and system configuration.
+   [Link to the portal's GitHab repository](https://github.com/AvitalShmueli/feedback-portal)
+
 
 ---
 
