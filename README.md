@@ -147,7 +147,7 @@ manager.getActiveFeedbackForm(context, fragmentManager, new FeedbackFormManager.
 ---
 
 ## Documentation
-For detailed documentation, API references, and advanced usage examples, visit the [documentation site](docs/index.md).
+For detailed documentation, API references, and advanced usage examples, visit the [documentation site](https://avitalshmueli.github.io/InAppFeedbackSDK/).
 
 ---
 
