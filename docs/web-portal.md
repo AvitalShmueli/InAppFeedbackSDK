@@ -3,7 +3,7 @@ The Feedback Portal is a web-based management interface for developers to config
 Use it to create feedback forms, track user responses, and analyze feedback data from your Android applications.
 
 ## Portal Access
-URL: https://feedback-portal-eight.vercel.app
+URL: [https://feedback-portal-eight.vercel.app](https://feedback-portal-eight.vercel.app)
 
 Access the portal through any web browser. No authentication is required for basic usage.
 
