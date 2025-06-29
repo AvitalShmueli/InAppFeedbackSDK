@@ -28,5 +28,5 @@ Use the web dashboard to view, filter, and analyze user feedback submissions in 
 
 ### 🎥 Demo Video
 
-[![Watch the demo video](https://github.com/user-attachments/assets/dab7d155-54cf-4403-a27d-87bcf99fac4b)](https://github.com/user-attachments/assets/dab7d155-54cf-4403-a27d-87bcf99fac4b)
+[![Watch the demo video](https://github.com/user-attachments/assets/dab7d155-54cf-4403-a27d-87bcf99fac4b)](https://share.synthesia.io/bd430205-9c26-4b87-98f3-45026d8bb35e)
 
