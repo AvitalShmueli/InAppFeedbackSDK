@@ -14,7 +14,7 @@ By the end of this guide, you'll have:
 
 ## Step 1: Create Your Feedback Form
 
-1. Open the Portal: https://feedback-portal-eight.vercel.app
+1. Open the Portal: [https://feedback-portal-eight.vercel.app](https://feedback-portal-eight.vercel.app)
 2. Click "Create Form" on the dashboard
 3. Fill in the form details:
    * **Package Name**: `com.yourcompany.yourapp`
@@ -49,7 +49,9 @@ Add the SDK to your Android app in a few lines of code.
        }
    ```
    
-2. Add the SDK dependency - Current tag version: 1.0.2
+2. Add the SDK dependency - Current tag version: [![](https://jitpack.io/v/AvitalShmueli/InAppFeedbackSDK.svg)](https://jitpack.io/#AvitalShmueli/InAppFeedbackSDK)
+
+   
    **Option A** - Directly in `build.gradle.kts`:
    ```kotlin
    dependencies {
@@ -72,9 +74,9 @@ Add the SDK to your Android app in a few lines of code.
    }
    ```  
    
-3. Sync Your Project
+4. Sync Your Project
 
-4. Add Internet Permission    
+5. Add Internet Permission    
    In your `AndroidManifest.xml`:
    ```xml    
     <uses-permission android:name="android.permission.INTERNET" />    
@@ -133,7 +135,7 @@ Let’s test the flow!
 
 ### View Your Feedback
 
-1. Open the portal: https://feedback-portal-eight.vercel.app
+1. Open the portal: [https://feedback-portal-eight.vercel.app](https://feedback-portal-eight.vercel.app)
 2. Filter by your app’s package name
 3. See real-time data including:
    * Rating and message
@@ -169,4 +171,4 @@ Now that your feedback system is live, here are some ways to take it further:
 ## Troubleshooting
 - **Form not showing?** Check that your package name matches exactly and that a form is active.
 - **Dialog not appearing?** Ensure getActiveFeedbackForm() is called from a UI-safe context.
-- **Network error?** Confirm your app has Internet permission and access to https://feedback-portal-eight.vercel.app.
+- **Network error?** Confirm your app has Internet permission and access to [https://feedback-portal-eight.vercel.app](https://feedback-portal-eight.vercel.app)
