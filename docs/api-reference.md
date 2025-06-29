@@ -413,6 +413,6 @@ The system supports three types of feedback forms:
 ## Interactive API Documentation
 For interactive API testing and detailed request/response examples, visit the Swagger UI documentation at:
 
-http://feedback-backend-one.vercel.app/apidocs/
+[http://feedback-backend-one.vercel.app/apidocs/](http://feedback-backend-one.vercel.app/apidocs/)
 
 This provides a web interface where you can test API endpoints directly and see real-time responses.
