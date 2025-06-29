@@ -49,7 +49,7 @@ Add the SDK to your Android app in a few lines of code.
        }
    ```
    
-2. Add the SDK dependency - Current tag version: 1.0.0
+2. Add the SDK dependency - Current tag version: 1.0.2
    **Option A** - Directly in `build.gradle.kts`:
    ```kotlin
    dependencies {
