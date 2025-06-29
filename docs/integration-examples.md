@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 ### Notes:
 - The feedback dialog is only shown if a form is active for your app's package name.
 - The userId is optional but useful for associating feedback with users.
-- You can trigger the dialog from any place in your app — not just a button.
+- You can trigger the dialog from any place in your app - not just a button.
 
 ---
 

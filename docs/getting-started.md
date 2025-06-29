@@ -31,6 +31,7 @@ By the end of this guide, you'll have:
 Your form is now live! The SDK will automatically fetch and display it in your app.
 
 
+
 ## Step 2: Android Integration
 Add the SDK to your Android app in a few lines of code.
 
@@ -110,6 +111,7 @@ Add the SDK to your Android app in a few lines of code.
    [View full code example](./integration-examples)
 
 
+
 ## Step 3: Test Your Integration
 Let’s test the flow!
 
@@ -141,6 +143,7 @@ Let’s test the flow!
    * User id
 
 
+
 ## Next Steps
 Now that your feedback system is live, here are some ways to take it further:
 - **Customize when the dialog appears**
@@ -157,7 +160,7 @@ Now that your feedback system is live, here are some ways to take it further:
 - **Monitor trends in the portal**
   Analyze ratings, user messages, and submission frequency over time.
 
-  💡 Don’t just collect — act on insights and close the loop with users where possible.
+  💡 Don’t just collect - act on insights and close the loop with users where possible.
   
 - **Limit over-prompting**
   Prompt users sparingly to prevent fatigue. Once every few sessions is often enough.

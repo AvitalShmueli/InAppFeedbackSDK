@@ -14,7 +14,7 @@ Code samples for launching the feedback dialog from activities, fragments, or ot
 
 
 ### [🎨  3. Feedback Dialog customizations](./customizations.md)
-Personalize the appearance of the feedback dialog — control colors, buttons, and layout behavior.
+Personalize the appearance of the feedback dialog - control colors, buttons, and layout behavior.
 
 
 ### [📘  4. API Service Documentation](./api-reference.md)
