@@ -41,6 +41,5 @@ feedbackManager.setDialogCancelButtonTextColor(getColor(R.color.cyan));
 ```
 
 ## 💡 Notes
-These methods must be called before invoking getActiveFeedbackForm() or displaying the dialog.
-
-All methods accept a resolved color (int) - for example, use ContextCompat.getColor(context, R.color.my_color) if you're not in an Activity.
+* These methods must be called before invoking getActiveFeedbackForm() or displaying the dialog.
+* All methods accept a resolved color (int) - for example, use ContextCompat.getColor(context, R.color.my_color) if you're not in an Activity.
