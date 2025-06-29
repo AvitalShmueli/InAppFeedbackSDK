@@ -2,6 +2,8 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 [![](https://jitpack.io/v/AvitalShmueli/InAppFeedbackSDK.svg)](https://jitpack.io/#AvitalShmueli/InAppFeedbackSDK)
 
+Final project for Advanced Seminar in Mobile Development, in Afeka - the academic college of Engineering in Tel-Aviv.
+
 The **InAppFeedbackSDK** library is a lightweight Android SDK to **collect in-app user feedback** with a customizable dialog and automatic device/app metadata capture. Built for easy integration and seamless UX.
 
 <p align="center">
