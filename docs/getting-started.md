@@ -151,7 +151,7 @@ Now that your feedback system is live, here are some ways to take it further:
 - **Collect analytics on submission events**
   Track when feedback is shown, skipped, or submitted. Use this data to improve timing and targeting.
   
-- **Style the dialog (coming soon)**
+- **Style the dialog**
   Customize the look and feel to match your app’s branding.
   
 - **Monitor trends in the portal**

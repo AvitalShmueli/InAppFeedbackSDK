@@ -27,6 +27,7 @@ public class FeedbackDialogFragment extends DialogFragment {
     private DialogFeedbackBinding binding;
     private TextInputLayout dialog_TIL_message;
     private TextInputEditText dialog_TXT_message;
+    private MaterialTextView dialog_LBL_title;
     private MaterialTextView dialog_LBL_description;
     private RatingBar dialog_BAR_rating;
     private MaterialButton dialog_BTN_submit;
@@ -67,6 +68,7 @@ public class FeedbackDialogFragment extends DialogFragment {
         createBinding();
 
         applyFormSettings(form);
+        applyCustomColors();
 
         dialog_BTN_submit.setOnClickListener(v -> submitFeedback());
         dialog_BTN_notNow.setOnClickListener(v -> dismiss());
@@ -86,6 +88,7 @@ public class FeedbackDialogFragment extends DialogFragment {
 
     private void createBinding(){
         dialog_LBL_description = binding.dialogLBLDescription;
+        dialog_LBL_title = binding.dialogLBLTitle;
         dialog_TIL_message = binding.dialogTILMessage;
         dialog_TXT_message = binding.dialogTXTMessage;
         dialog_BAR_rating = binding.dialogBARRating;
@@ -96,7 +99,6 @@ public class FeedbackDialogFragment extends DialogFragment {
 
     private void submitFeedback() {
         Feedback newFeedback = createFeedback();
-       // Feedback newFeedback = feedbackFormManager.buildFeedback(message, rating);
 
         feedbackFormManager.submitFeedback(newFeedback, new FeedbackSubmitCallback() {
             @Override
@@ -185,6 +187,28 @@ public class FeedbackDialogFragment extends DialogFragment {
                 dialog_BAR_rating.setVisibility(VISIBLE);
                 dialog_TIL_message.setVisibility(VISIBLE);
                 break;
+        }
+    }
+
+    private void applyCustomColors() {
+        if (feedbackFormManager.getDialogTitleTextColor() != null) {
+            dialog_LBL_title.setTextColor(feedbackFormManager.getDialogTitleTextColor());
+        }
+
+        if (feedbackFormManager.getDialogDescriptionTextColor() != null) {
+            dialog_LBL_description.setTextColor(feedbackFormManager.getDialogDescriptionTextColor());
+        }
+
+        if (feedbackFormManager.getDialogSubmitButtonBackgroundColor() != null) {
+            dialog_BTN_submit.setBackgroundColor(feedbackFormManager.getDialogSubmitButtonBackgroundColor());
+        }
+
+        if (feedbackFormManager.getDialogSubmitButtonTextColor() != null) {
+            dialog_BTN_submit.setTextColor(feedbackFormManager.getDialogSubmitButtonTextColor());
+        }
+
+        if (feedbackFormManager.getDialogCancelButtonTextColor() != null) {
+            dialog_BTN_notNow.setTextColor(feedbackFormManager.getDialogCancelButtonTextColor());
         }
     }
 

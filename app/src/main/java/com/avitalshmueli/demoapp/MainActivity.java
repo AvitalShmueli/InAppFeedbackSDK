@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         FeedbackFormManager feedbackManager = FeedbackFormManager.getInstance(getApplicationContext());
         feedbackManager.setUserId("USER_123456"); // simulate authenticated user
 
+        // Customize dialog colors
+        feedbackManager.setDialogTitleTextColor(getColor(R.color.green));
+        feedbackManager.setDialogDescriptionTextColor(getColor(R.color.cyan));
+        feedbackManager.setDialogSubmitButtonBackgroundColor(getColor(R.color.green));
+        feedbackManager.setDialogSubmitButtonTextColor(getColor(R.color.white));
+        feedbackManager.setDialogCancelButtonTextColor(getColor(R.color.cyan));
+
         binding.mainBTNShowPopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

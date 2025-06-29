@@ -30,6 +30,12 @@ public class FeedbackFormManager {
     private static final String KEY_USER_ID = "user_id";
     private static final FeedbackController feedbackController = new FeedbackController();
 
+    private Integer dialogTitleTextColor;
+    private Integer dialogDescriptionTextColor;
+    private Integer dialogSubmitButtonBackgroundColor;
+    private Integer dialogSubmitButtonTextColor;
+    private Integer dialogCancelButtonTextColor;
+
     /**
      * Callback interface for delivering feedback form loading results.
      * @param <T> The type of data returned in the callback.
@@ -51,6 +57,7 @@ public class FeedbackFormManager {
             instance = new FeedbackFormManager();
             instance.appContext = context.getApplicationContext();
             instance.appVersion = instance.getAppVersion();
+
         }
         return instance;
     }
@@ -99,6 +106,7 @@ public class FeedbackFormManager {
                     .edit().putString(KEY_USER_ID, userId).apply();
         }
     }
+
 
     /**
      * Returns the stored user ID, or creates one if not found.
@@ -192,6 +200,51 @@ public class FeedbackFormManager {
         }
     }
 
+    public Integer getDialogTitleTextColor() {
+        return dialogTitleTextColor;
+    }
+
+    public FeedbackFormManager setDialogTitleTextColor(Integer dialogTitleTextColor) {
+        this.dialogTitleTextColor = dialogTitleTextColor;
+        return this;
+    }
+
+    public Integer getDialogDescriptionTextColor() {
+        return dialogDescriptionTextColor;
+    }
+
+    public FeedbackFormManager setDialogDescriptionTextColor(Integer dialogDescriptionTextColor) {
+        this.dialogDescriptionTextColor = dialogDescriptionTextColor;
+        return this;
+    }
+
+    public Integer getDialogSubmitButtonBackgroundColor() {
+        return dialogSubmitButtonBackgroundColor;
+    }
+
+    public FeedbackFormManager setDialogSubmitButtonBackgroundColor(Integer dialogSubmitButtonBackgroundColor) {
+        this.dialogSubmitButtonBackgroundColor = dialogSubmitButtonBackgroundColor;
+        return this;
+    }
+
+    public Integer getDialogSubmitButtonTextColor() {
+        return dialogSubmitButtonTextColor;
+    }
+
+    public FeedbackFormManager setDialogSubmitButtonTextColor(Integer dialogSubmitButtonTextColor) {
+        this.dialogSubmitButtonTextColor = dialogSubmitButtonTextColor;
+        return this;
+    }
+
+    public Integer getDialogCancelButtonTextColor() {
+        return dialogCancelButtonTextColor;
+    }
+
+    public FeedbackFormManager setDialogCancelButtonTextColor(Integer dialogCancelButtonTextColor) {
+        this.dialogCancelButtonTextColor = dialogCancelButtonTextColor;
+        return this;
+    }
+
     /**
      * Shows the feedback dialog fragment with the given feedback form.
      *
@@ -205,7 +258,6 @@ public class FeedbackFormManager {
 
     /**
      * Submits the given Feedback object to the backend.
-     *
      * @param feedback The Feedback object to be submitted.
      * @param callback Callback to notify on success or failure.
      */
