@@ -28,7 +28,5 @@ Use the web dashboard to view, filter, and analyze user feedback submissions in 
 
 ### 🎥 Demo Video
 
-<div style="position: relative; overflow: hidden; aspect-ratio: 1920/1080">
-<iframe width="560" height="315" src="https://share.synthesia.io/embeds/videos/bd430205-9c26-4b87-98f3-45026d8bb35e" loading="lazy" title="Synthesia video player - In-AppvFeedbackvSDK video" allowfullscreen allow="encrypted-media; fullscreen;" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; overflow:hidden;">
-</iframe>
-</div>
+[![Watch the demo video](https://github.com/user-attachments/assets/dab7d155-54cf-4403-a27d-87bcf99fac4b)](https://github.com/user-attachments/assets/dab7d155-54cf-4403-a27d-87bcf99fac4b)
+
